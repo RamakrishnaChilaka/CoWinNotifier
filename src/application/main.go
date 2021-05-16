@@ -67,9 +67,10 @@ func processMessage(session Session) {
 		"message": message,
 		"bot": false,
 		"ts": "",
+		"url":"https://preview.nferx.com/dv/202011/signals?",
 	}
 	byteBody, _ := json.Marshal(body)
-	_, _ = Post(context.Background(), "https://localhost:8015/issueapi/postSlackChannelMessage", map[string]string{
+	_, _ = Post(context.Background(), "http://localhost:8015/issueapi/postSlackChannelMessage", map[string]string{
 		"X-NFER-USER": "ramakrishna@nference.net",
 	}, nil, byteBody)
 }
@@ -90,7 +91,7 @@ func main() {
 		case <-timer.C:
 			// check if some slots are opened up
 			// do a get request
-			get, err := Get(ctx, "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=294&date="+time.Now().Format("02-01-2006"), nil, nil)
+			get, err := Get(ctx, "http://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=294&date="+time.Now().Format("02-01-2006"), nil, nil)
 			if err != nil {
 				panic(err.Error())
 			}
