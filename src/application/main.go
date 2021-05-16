@@ -69,7 +69,7 @@ func processMessage(session Session) {
 		"ts": "",
 	}
 	byteBody, _ := json.Marshal(body)
-	_, _ = Post(context.Background(), "https://localhost:3432/issueapi/postSlackChannelMessage", map[string]string{
+	_, _ = Post(context.Background(), "https://localhost:8015/issueapi/postSlackChannelMessage", map[string]string{
 		"X-NFER-USER": "ramakrishna@nference.net",
 	}, nil, byteBody)
 }
