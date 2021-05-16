@@ -135,7 +135,7 @@ func Get(ctx context.Context, url string, header map[string]string, queryParams 
 		header = map[string]string{}
 	}
 
-	header["User-Agent"] = "PostmanRuntime/7.26.8"
+	header["User-Agent"] = "Mozilla/5.0"
 	header["Cache-Control"] = "no-cache"
 
 	for key, value := range header {
